@@ -8,19 +8,18 @@ This project uses a structured memory system.
 You MUST load and respect all referenced files before generating code or making decisions.
 
 ## Context Priority Order
+Read the following to get the full context of the project
 
-1. active-context.md (highest priority)
-2. current-feature.md
-3. decisions.md
-4. architecture.md
-5. coding-standards.md
-6. tech-stack.md
-7. ai-interaction.md
-8. progress.md
-9. project-overview.md
-10. memory-bank.md (lowest priority)
-
----
+1. @memory-bank/active-context.md (highest priority)
+2. @memory-bank/current-feature.md
+3. @memory-bank/decisions.md
+4. @memory-bank/architecture.md
+5. @memory-bank/coding-standards.md
+6. tech@memory-bank/-stack.md
+7. @memory-bank/ai-interaction.md
+8. @memory-bank/progress.md
+9. project@memory-bank/-overview.md
+10. @memory-bank/memory-bank.md (lowest priority)
 
 ## Primary Context Source (Memory Bank)
 
