@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
+const repoName = "/DevStash";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/DevStash",
+  basePath: repoName,
+  assetPrefix: repoName,
   images: {
     unoptimized: true,
   },
