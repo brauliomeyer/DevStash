@@ -1,5 +1,8 @@
 {
   "folders": [
     { "path": "." }
-  ]
+  ],
+  "settings": {
+    "css.lint.unknownAtRules": "ignore"
+  }
 }
