@@ -1,14 +1,17 @@
 import type { NextConfig } from "next";
 
-const repoName = "/DevStash";
+const isGitHubPagesBuild = process.env.GITHUB_ACTIONS === "true";
+const repoBasePath = isGitHubPagesBuild ? "/DevStash" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: repoName,
-  assetPrefix: repoName,
+  basePath: repoBasePath,
+
   images: {
     unoptimized: true,
   },
+
+  allowedDevOrigins: ["192.168.1.131"],
 };
 
 export default nextConfig;
