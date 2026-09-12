@@ -1,9 +1,9 @@
 name: Deploy Next.js site to Pages
 
 on:
-  # Automatisch deployen bij push naar main
+  # Automatisch deployen bij push naar main en dev
   push:
-    branches: [main]
+    branches: [main, dev]
 
   # Handmatig te starten vanuit het Actions-tabblad
   workflow_dispatch:
