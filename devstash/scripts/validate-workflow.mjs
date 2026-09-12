@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const workflowPath = path.resolve(here, '..', '.github', 'workflows', 'nextjs.yml');
+const workflowPath = path.resolve(here, '..', '..', '.github', 'workflows', 'nextjs.yml');
 
 if (!fs.existsSync(workflowPath)) {
   console.error('WORKFLOW NIET GEVONDEN:', workflowPath);
