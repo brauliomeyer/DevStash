@@ -9,6 +9,12 @@ import yaml from 'js-yaml';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const workflowPath = path.resolve(here, '..', '..', '.github', 'workflows', 'nextjs.yml');
 
+if (!fs.existsSync(workflowPath)) {
+  console.error('WORKFLOW NIET GEVONDEN:', workflowPath);
+  process.exit(1);
+}
+console.log('Gevalideerd bestand:', workflowPath);
+
 function assert(cond, msg) {
   if (!cond) {
     console.error('ASSERT FAIL:', msg);
