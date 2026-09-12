@@ -1,7 +1,7 @@
 name: Deploy Next.js site to Pages
 
 on:
-  # Automatisch deployen bij push naar main en dev
+  # Bouwen bij push naar main en dev; deployen gebeurt alleen vanaf main
   push:
     branches: [main, dev]
 
@@ -14,9 +14,9 @@ permissions:
   pages: write
   id-token: write
 
-# Slechts één gelijktijdige deployment toestaan; in-progress runs niet annuleren
+# Eén gelijktijdige deployment per branch; in-progress runs niet annuleren
 concurrency:
-  group: "pages"
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -51,9 +51,10 @@ jobs:
         with:
           path: ./devstash/out
 
-  # Deployment job
+  # Deployment job (alleen vanaf main; het github-pages environment staat alleen main toe)
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -48,7 +48,7 @@ assert(d.permissions.pages === 'write', 'permissions.pages = write');
 assert(d.permissions['id-token'] === 'write', "permissions.'id-token' = write");
 
 // Concurrency
-assert(d.concurrency.group === 'pages', 'concurrency.group = pages');
+assert(d.concurrency.group === 'pages-${{ github.ref }}', 'concurrency.group = pages-${{ github.ref }}');
 assert(d.concurrency['cancel-in-progress'] === false, 'cancel-in-progress = false');
 
 // Build job
@@ -85,6 +85,7 @@ assert(upload.with.path === './devstash/out', 'artifact pad = ./devstash/out');
 // Deploy job
 const deploy = d.jobs.deploy;
 assert(deploy.needs === 'build', 'deploy.needs = build');
+assert(deploy.if === "github.ref == 'refs/heads/main'", 'deploy alleen vanaf main (if: github.ref == refs/heads/main)');
 assert(deploy['runs-on'] === 'ubuntu-latest', 'deploy.runs-on = ubuntu-latest');
 assert(deploy.environment.name === 'github-pages', 'environment.name = github-pages');
 assert(deploy.environment.url === '${{ steps.deployment.outputs.page_url }}', 'environment.url expressie');
